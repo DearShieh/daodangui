@@ -8,19 +8,19 @@ url = "http://192.168.0.123:8082/userPartner/show"
 headers = {"Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTI1MzU0MTksInRpbWVzdGVtcCI6MTU5MTkzMDYxOTMzOCwidXNlciI6eyJ1c2VySWQiOjM5NCwidXNlclR5cGUiOjgsInVzZXJOYW1lIjpudWxsLCJwaG9uZSI6bnVsbCwiZXh0IjpudWxsfX0.9MTzvede666MBrbaX7azEPmfXYB5XUyWLUNP7N62wwA"}
         # from-data格式：  需要安装：pip install requests_toolbelt
         # 导包：from requests_toolbelt import MultipartEncoder
-        # response = requests.post(url=url, data=data, headers = headers)
+        # response = requests.post(url=url, dataconfig=dataconfig, headers = headers)
         # 组合headers     ~~~~
 
 # 添加haeders:
 # headers = {"ContentType" : "application/x-www-form-urlencoded"}
-# response = requests.post(url=url, json=data, haeders=headers)
+# response = requests.post(url=url, json=dataconfig, haeders=headers)
 
 # 3.发送请求        application/x-www-form-urlencoded格式请求
 response = requests.get(url=url, headers=headers)
 # https请求：
-# response = requests.post(url=url, data=data,verify = False)
+# response = requests.post(url=url, dataconfig=dataconfig,verify = False)
 # json格式请求
-# response = requests.post(url=url, json=data)
+# response = requests.post(url=url, json=dataconfig)
 
 # 4.美化格式输出
 print(json.dumps(response.json(),indent=2,ensure_ascii=False))

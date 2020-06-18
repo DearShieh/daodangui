@@ -13,8 +13,8 @@ class Testlogin(unittest.TestCase):
     def test_login(self):
         data = {"phone": "18328207604", "code": "0000"}
         res = self.login.login(data)
-        print(GetKeyword.format_response(res))
-        print(GetKeyword.get_value_by_keyword(res, "token"))
+        # print(GetKeyword.format_response(res))
+        # print(GetKeyword.get_value_by_keyword(res, "token"))
 
         code = GetKeyword.get_value_by_keyword(res, "code")
         self.assertEqual(code, 1)

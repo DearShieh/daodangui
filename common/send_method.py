@@ -32,7 +32,7 @@ class SendMethod:
 # if __name__ == '__main__':
 #     url = "http://192.168.0.233:8082/account/partner/login"
 #     method = "post"
-#     data = {"phone": "18328207604", "code": "0000"}
-#     res = SendMethod.send_method(method=method, url=url, data=data)
+#     dataconfig = {"phone": "18328207604", "code": "0000"}
+#     res = SendMethod.send_method(method=method, url=url, dataconfig=dataconfig)
 #     # print(res)
 #     print(SendMethod.format_response(res))

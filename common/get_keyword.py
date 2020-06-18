@@ -13,11 +13,11 @@ class GetKeyword(SendMethod):
 
 
 # if __name__ == '__main__':
-#     # data = SendMethod.format_response
+#     # dataconfig = SendMethod.format_response
 #
-# #     data = {
+# #     dataconfig = {
 # #   "code": 1,
-# #   "data": {
+# #   "dataconfig": {
 # #     "partner": {
 # #       "pickupPhone": "18328207604",
 # #       "addTime": "2020-06-01 15:02:52",
