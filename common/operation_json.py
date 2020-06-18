@@ -1,4 +1,5 @@
 import json
+# import dataconfig
 
 # fp = open('../dataconfig/partner_login.json')
 # dataconfig = json.load(fp)
@@ -7,8 +8,9 @@ import json
 
 class OperationJson:
     def __init__(self):
-        self.data = self.read_data()
+        self.data = self.read_data
         # 读取json文件
+    @property
     def read_data(self):
         with open('../dataconfig/partner_login.json') as fp:
             data = json.load(fp)
