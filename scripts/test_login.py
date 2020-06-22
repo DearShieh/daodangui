@@ -1,13 +1,16 @@
-import os, sys,time
+import os, sys
 import unittest
 
 sys.path.append(os.getcwd())
 from interface.api_partner_login import PartnerLogin
 from common.get_keyword import GetKeyword
-
+from common.is_contain import IsContain
+from data.get_data import GetData
 
 class Test_login(unittest.TestCase):
     def setUp(self):
+        self.contain = IsContain()
+        self.expect_data = GetData()
         self.login = PartnerLogin()
 
     def test_login(self):
@@ -16,9 +19,25 @@ class Test_login(unittest.TestCase):
         print(GetKeyword.format_response(res))
         # print(GetKeyword.get_value_by_keyword(res, "token"))
 
-        code = GetKeyword.get_value_by_keyword(res, "code")
-        self.assertEqual(code, 1)
+    # Assertion：
+        expect_data = self.expect_data.get_expect_data(1)
+        # if self.contain.is_contain(expect_data, res):
+        #     print('Pass')
+        # else:
+        #     print('False')
 
-# if __name__ == '__main__':
-#
-#     unittest.main()
+        # code = GetKeyword.get_value_by_keyword(res, "code")
+        # self.assertEqual(code, 1)
+        pickupPhone = GetKeyword.get_value_by_keyword(res["data"]["partner"], "pickupPhone")
+
+        # print(pickupPhone, expect_data)
+        # print("是什么：%s"%(type(pickupPhone)))
+
+        self.assertEqual(pickupPhone, expect_data, "False")
+        #     print('Pass')
+        # else:
+        #     print('False')
+        # self.assertIn(pickupPhone, expect_data)
+if __name__ == '__main__':
+
+    unittest.main()

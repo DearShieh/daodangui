@@ -68,13 +68,13 @@ class GetData:
             return expect
 
 
-# if __name__ == '__main__':
-#     a = GetData()
-#     lines = a.get_case_lines()
-#     method = a.get_method(1)
-#     url = a.get_url(1)
-#     run = a.get_is_run(1)
-#     headers = a.is_headers(1)
-#     data = a.get_data_for_json(1)
-#     expects = a.get_expect_data(1)
-#     print(lines, url, run, method, headers, data, expects)
+if __name__ == '__main__':
+    a = GetData()
+    lines = a.get_case_lines()
+    method = a.get_method(1)
+    url = a.get_url(1)
+    run = a.get_is_run(1)
+    headers = a.is_headers(1)
+    data = a.get_data_for_json(1)
+    expects = a.get_expect_data(1)
+    print(lines, url, run, method, headers, data, expects)

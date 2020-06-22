@@ -15,7 +15,7 @@ class Test_PartnerShow(unittest.TestCase):
     def test_show(self):
         # data = {"phone": "18328207604", "code": "0000"}
         # token = "Bearer " + self.login.get_token(data)
-        # # print(token)
+        # print(token)
         # headers = {"Authorization": token}  # “token”不能加引号！！！！
         res = self.show.show()
         print(GetKeyword.format_response(res))
