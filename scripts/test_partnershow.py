@@ -13,13 +13,12 @@ class Test_PartnerShow(unittest.TestCase):
         self.show = Partnershow()
 
     def test_show(self):
-        data = {"phone": "18328207604", "code": "0000"}
-        token = "Bearer " + self.login.get_token(data)
-        # print(token)
-        headers = {"Authorization": token}  # “token”不能加引号！！！！
-        res = self.show.show(headers)
-
-        # print(GetKeyword.format_response(res))
+        # data = {"phone": "18328207604", "code": "0000"}
+        # token = "Bearer " + self.login.get_token(data)
+        # # print(token)
+        # headers = {"Authorization": token}  # “token”不能加引号！！！！
+        res = self.show.show()
+        print(GetKeyword.format_response(res))
         code = GetKeyword.get_value_by_keyword(res, "code")
         self.assertEqual(code, 1)
 

@@ -12,7 +12,7 @@ class OperationJson:
         # 读取json文件
     @property
     def read_data(self):
-        with open('../dataconfig/partner_login.json') as fp:
+        with open('./dataconfig/partner_login.json') as fp:
             data = json.load(fp)
             return data
         # 根据关键字获取数据
