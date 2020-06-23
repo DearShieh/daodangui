@@ -67,6 +67,10 @@ class GetData:
         else:
             return expect
 
+    def write_result(self, row, value):
+        col = self.data.get_result()
+        self.excel.write_value(row, col, value)
+
 
 if __name__ == '__main__':
     a = GetData()

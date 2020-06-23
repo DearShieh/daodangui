@@ -5,10 +5,12 @@ sys.path.append(os.getcwd())
 from interface.api_partner_login import PartnerLogin
 from interface.api_partner_show import Partnershow
 from common.get_keyword import GetKeyword
+from data.get_data import GetData
 
 
 class Test_PartnerShow(unittest.TestCase):
     def setUp(self):
+        self.expect_data = GetData()
         self.login = PartnerLogin()
         self.show = Partnershow()
 
@@ -19,8 +21,23 @@ class Test_PartnerShow(unittest.TestCase):
         # headers = {"Authorization": token}  # “token”不能加引号！！！！
         res = self.show.show()
         print(GetKeyword.format_response(res))
-        code = GetKeyword.get_value_by_keyword(res, "code")
-        self.assertEqual(code, 1)
+
+        # Assertion:
+        expect_data = self.expect_data.get_expect_data(2)
+        code = str(GetKeyword.get_value_by_keyword(res, "code"))
+        # res =str(res)
+        # print(type(expect_data), type(res))
+        try:
+            self.assertIn(code, expect_data)
+            self.expect_data.write_result(2, 'Pass')
+            print('Pass')
+        except AssertionError:
+            self.expect_data.write_result(2, 'Fail')
+            raise print('Fail')
+
+
+        # code = GetKeyword.get_value_by_keyword(res, "code")
+        # self.assertEqual(code, 1)
 
 # if __name__ == '__main__':
 #     unittest.main()
