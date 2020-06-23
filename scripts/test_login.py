@@ -37,7 +37,7 @@ class Test_login(unittest.TestCase):
             self.expect_data.write_result(1, 'Pass')
             print('Pass')
         except AssertionError:
-            self.expect_data.write_result(1, 'Fail')
+            self.expect_data.write_result(1, res)
             raise print('Fail')
         #     print('Pass')
         # else:

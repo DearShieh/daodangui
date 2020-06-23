@@ -32,7 +32,7 @@ class Test_PartnerShow(unittest.TestCase):
             self.expect_data.write_result(2, 'Pass')
             print('Pass')
         except AssertionError:
-            self.expect_data.write_result(2, 'Fail')
+            self.expect_data.write_result(2, res)
             raise print('Fail')
 
 
