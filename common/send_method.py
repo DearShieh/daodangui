@@ -8,9 +8,9 @@ class SendMethod:
     @staticmethod  # 静态方法不需要实例化，使用方式：类名.静态方法
     def send_method(method, url, params=None, headers=None, data=None):
         if method == "get" or method == "delete":
-            response = requests.request(method=method, url=url, params=params, headers=headers)
+            response = requests.request(method=method, url=url, params=params, headers=headers, verify=False)
         elif method == "post" or method == "put":
-            response = requests.request(method=method, url=url, data=data)
+            response = requests.request(method=method, url=url, data=data, verify=False)
         else:
             print("请求方式错误！")
             response = None

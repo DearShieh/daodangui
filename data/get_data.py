@@ -3,6 +3,7 @@ import os, sys
 sys.path.append(os.getcwd())
 from common.operation_excel import OperationExcel
 from common.operation_json import OperationJson
+from common.operation_mysql import OperationMySQL
 import data.data_config
 
 
@@ -10,6 +11,7 @@ class GetData:
     def __init__(self):
         self.excel = OperationExcel()
         self.json = OperationJson()
+        self.mysql = OperationMySQL()
         self.data = data.data_config
 
     def get_case_lines(self):
@@ -67,6 +69,13 @@ class GetData:
         else:
             return expect
 
+    # 在MySQL中获取结果
+    def get_expect_data_from_mysql(self, row):
+        sql = self.get_expect_data(row)
+        res = self.mysql.search_one(sql)
+        return res
+
+    # 在Excel中写入结果
     def write_result(self, row, value):
         col = self.data.get_result()
         self.excel.write_value(row, col, value)

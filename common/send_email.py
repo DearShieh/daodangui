@@ -20,14 +20,12 @@ class SendEmail:
         # 添加附件
         with open(report_name, 'rb') as f:
             mime = MIMEBase('html', 'html', filename=report_name)  # 创建表示附件的MIMEBase对象，重新命名为test.png
-            mime.add_header('Content-Disposition', 'attachment', filename=report_name)
+            mime.add_header('Content-Disposition', 'attachment', filename='APIdaodangui_report.html')
             mime.set_payload(f.read())  # 读取附件内容
             mime.add_header('Content-ID', '<0>')
             mime.add_header('X-Attachment-Id', '0')
             encoders.encode_base64(mime)
 
-
-        # mime = MIMEBase('html', 'html', filename=report_name)
         message['Subject'] = sub
         message['From'] = user
         message['To'] = ";".join(user_list)
